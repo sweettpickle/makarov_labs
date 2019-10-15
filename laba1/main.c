@@ -1,6 +1,12 @@
 #include <stdio.h>
+#include <>
 
 int solve(int mas_b[100][2], int mas_w[100][2], int m, int n);
+
+void create_win(int mas_b[100][2], int mas_w[100][2], int m, int n)
+{
+
+}
 
 void input(int m, int n)
 {
@@ -27,7 +33,11 @@ void input(int m, int n)
     if (solve(mas_black, mas_white, m, n))
     	printf("line is here!");
     else
+    {
     	printf("not found line:(");
+        return ;
+    }
+    create_win(mas_black, mas_white, m, n);
 }
 
 int search_d(const int *par1, const int *par2, const int *par3)
@@ -40,7 +50,7 @@ int search_d(const int *par1, const int *par2, const int *par3)
 	return (a - b);
 }
 
-int one_side(const int *mas, int m)
+int on_one_side(const int *mas, int m)
 {
 	int i;
 	int c;
@@ -80,7 +90,7 @@ int one_color(const int *par1, const int *par2, int mas_w[100][2], int n, int si
 		mas[i] = search_d(par1, par2, mas_w[i]);
 		i++;
 	}
-	side2 = one_side(mas, n);
+	side2 = on_one_side(mas, n);
 	if (side2 != 0 && side2 != side1)
 		return (1);
 	return (0);
@@ -106,7 +116,7 @@ int solve(int mas_b[100][2], int mas_w[100][2], int m, int n)
 				mas[z] = search_d(mas_b[i], mas_b[j], mas_b[z]);
 				z++;
 			}
-			side = one_side(mas, m);
+			side = on_one_side(mas, m);
 			if (side == 1 || side == -1)
 			{
 				if (one_color(mas_b[i], mas_b[j], mas_w, n, side))
