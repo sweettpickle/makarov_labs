@@ -1,0 +1,132 @@
+#include <iostream>
+#include <map>
+
+
+using namespace std;
+
+int main(int argc, const char * argv[]) {
+    int n, m;
+    cout<<"entry n and m: ";
+    cin>>n>>m;
+    int **white= new int* [n];
+    int **black = new int* [m];
+    
+    cout<<"entry white points: "<<endl;
+    for (int i=0; i<n; i++){
+        white[i]= new int[3];
+        cin>>white[i][0]>>white[i][1];
+    }
+    
+    cout<<"entry black2 points: "<<endl;
+    for (int i=0; i<m; i++){
+        black[i] = new int[3];
+        cin>>black[i][0]>>black[i][1];
+    }
+    
+    /*
+    //-----------------------------
+    for (int i=0; i<n; i++){
+        cout<<white[i][0]<<"\t"<<white[i][1]<<"\t";
+    }
+    
+    for (int i=0; i<m; i++){
+        cout<<black[i][0]<<"\t"<<black[i][1]<<"\t";
+    }
+    
+    //---------------------------------
+    */
+    
+    int flag = 0, x=-1, y=-1;
+    for (int i = 0 ; i<n-1; i++){
+        for (int j =i+1; j<n; j++){
+            for (int k = 0; k<n+m; k++){
+                if (k<n && k != i && k != j){
+                    if ((white[k][0]-white[i][0])*(white[j][1]-white[i][1]) - (white[k][1]-white[i][1])*(white[j][0]-white[i][0]) > 0)
+                        white[k][2]=1;
+                    else
+                        white[k][2]=0;
+                }
+                if(k>=n){
+                    if ((black[k-n][0]-white[i][0])*(white[j][1]-white[i][1]) - (black[k-n][1]-white[i][1])*(white[j][0]-white[i][0]) > 0)
+                        black[k-n][2]=1;
+                    else
+                        black[k-n][2]=0;
+                }
+            }
+            
+            int sum_w=0, sum_b=0;
+            white[i][2]=0; white[j][2] = 0;
+            for (int q =0; q<n; q++){
+                sum_w += white[q][2];
+            }
+            for (int q=0; q<m; q++){
+                sum_b += black[q][2];
+            }
+            
+            /*
+            //====
+            cout<<endl<< i<<"  ==  "<<j<<endl;
+            for (int i=0; i<n; i++){
+                cout<<white[i][0]<<"\t"<<white[i][1]<<"\t"<<white[i][2]<<"\t";
+            }
+            
+            for (int i=0; i<m; i++){
+                cout<<black[i][0]<<"\t"<<black[i][1]<<"\t"<<black[i][2]<<"\t";
+            }
+            
+            cout << "sum_w  "<<sum_w<<"   sum_b  "<<sum_b<<endl;
+            //====
+            */
+             
+            if ((sum_w == 0 && sum_b == m) || (sum_w == n-2 && sum_b == 0)){
+                flag = 1;
+                x= i;
+                y = j;
+                break;
+            }
+        }
+        if (flag == 1 )
+            break;
+    }
+    
+    if (flag != 1){
+        for (int i = 0 ; i<m-1; i++){
+            for (int j =i; j<m; j++){
+                for (int k = 0; k<n+m; k++){
+                    if (k<m && k != i && k != j ){
+                        if ((black[k][0]-black[i][0])*(black[j][1]-black[i][1]) - (black[k][1]-black[i][1])*(black[j][0]-black[i][0]) > 0)
+                            black[k][2]=1;
+                        else
+                            white[k][2]=0;
+                    }
+                    if(k>=m){
+                        if ((white[k-m][0]-black[i][0])*(black[j][1]-black[i][1]) - (white[k-m][1]-black[i][1])*(black[j][0]-black[i][0]) > 0)
+                            white[k-m][2]=1;
+                        else
+                            white[k-m][2]=0;
+                    }
+                }
+                
+                int sum_w=0, sum_b=0;
+                black[i][2] = 0; black[j][2]= 0;
+                for (int q =0; q<n; q++){
+                    sum_w += white[q][2];
+                }
+                for (int q=0; q<m; q++){
+                    sum_b += black[q][2];
+                }
+                if ((sum_w == 0 && sum_b == m-2) || (sum_w == n && sum_b == 0)){
+                    flag = 1;
+                    x= i;
+                    y = j;
+                    break;
+                }
+                if (flag == 1 )
+                    break;
+            }
+        }
+    }
+    
+    cout << "x= "<<x<<"y="<<y;
+    return 0;
+}
