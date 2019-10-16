@@ -1,12 +1,12 @@
 #include <stdio.h>
-#include <>
+#include <OpenGL/gl.h>
 
 int solve(int mas_b[100][2], int mas_w[100][2], int m, int n);
 
-void create_win(int mas_b[100][2], int mas_w[100][2], int m, int n)
-{
-
-}
+//void create_win(int mas_b[100][2], int mas_w[100][2], int m, int n)
+//{
+//
+//}
 
 void input(int m, int n)
 {
@@ -37,7 +37,6 @@ void input(int m, int n)
     	printf("not found line:(");
         return ;
     }
-    create_win(mas_black, mas_white, m, n);
 }
 
 int search_d(const int *par1, const int *par2, const int *par3)
@@ -130,15 +129,49 @@ int solve(int mas_b[100][2], int mas_w[100][2], int m, int n)
 }
 
 int main() {
-    int m;
-    int n;
+//    int m;
+//    int n;
+//
+//    printf("Number of black point: \n");
+//    scanf("%d", &m);
+//    printf("Number of white point: \n");
+//    scanf("%d", &n);
+//    if (m < 2 || n < 2)
+//        return 0;
+//    input(m, n);
+	glBegin(GL_LINES);
+	glVertex3d(-1, -1, 0); //х
+	glVertex3d(1, -1, 0);
 
-    printf("Number of black point: \n");
-    scanf("%d", &m);
-    printf("Number of white point: \n");
-    scanf("%d", &n);
-    if (m < 2 || n < 2)
-        return 0;
-    input(m, n);
-    return 0;
+	glVertex3d(-1, 1, 0); //у
+	glVertex3d(-1, -1, 0);
+
+	glVertex3d(-1, -1, 0);//z
+	glVertex3d(-1, -1, 2);
+
+//	glColor3f(0, 1f, 0);
+
+	//double x,y,z;
+	//int imass = 10, jmass= 10;
+	//
+	//for (int i = 0; i <= imass; i++)
+	//{
+	//	for (int j = 0; j <= jmass; j++)
+	//	{
+	//		if (j != jmass)
+	//		{
+	//			glVertex3d(x[i], y[j], z[i, j]);
+	//			glVertex3d(x[i], y[j + 1], z[i, j + 1]);
+	//		}
+	//		if (i != imass)
+	//		{
+	//			glVertex3d(x[i], y[j], z[i, j]);
+	//			glVertex3d(x[i + 1], y[j], z[i + 1, j]);
+	//		}
+	//	}
+	//}
+
+	glEnd();
+
+	return 0;
 }
