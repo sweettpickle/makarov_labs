@@ -7,7 +7,7 @@ add_executable(laba1
         main.c)
 
 
-#for windows
+#for windows or linux
 #include <GL/glew.h>
 #include <GL/glut.h>
 
