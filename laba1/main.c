@@ -1,6 +1,13 @@
 #include <stdio.h>
-#include <GL/glew.h>
-#include <GL/glut.h>
+//for win or linux
+//#include <GL/glew.h>
+//#include <GL/glut.h>
+
+//for mac
+#include <OpenGL/glext.h>
+#include <GLUT/glut.h>
+#include <OpenGL/gl.h>
+#include <stdlib.h>
 
 int solve(int mas_b[100][2], int mas_w[100][2], int m, int n);
 
@@ -129,46 +136,92 @@ int solve(int mas_b[100][2], int mas_w[100][2], int m, int n)
 	return (0);
 }
 
-GLint Width = 450, Height = 450;
 
-void Display()
+
+
+GLint Width = 550, Height = 550;
+
+//void Display()
+//{
+//    glClearColor(0, 255, 0, 1); // цвет окна
+//    glClear(GL_COLOR_BUFFER_BIT); //очистка буфера цвета и буфера глубины
+//    glLineWidth(1); // ширина линий кооринатных осей
+//    glColor3f(255, 0, 0); // цвет координатных осей (черный)
+//    glBegin(GL_LINES); // ось ОХ, ось OY
+////    glVertex2f(-10, 0);
+//    glVertex2f(10, 0);
+//    glVertex2f(0, 10);
+////    glVertex2f(0, -10);
+//    glEnd();
+//}
+
+
+const int CubeSize = 200;
+
+/* эта функция управляет всем выводом на экран */
+void Display(void)
 {
-    glClearColor(0, 255, 0, 1); // цвет окна
-    glClear(GL_COLOR_BUFFER_BIT); //очистка буфера цвета и буфера глубины
-    glLineWidth(1); // ширина линий кооринатных осей
+	glClearColor(1, 1, 1, 1); // цвет окна
+	glClear(GL_COLOR_BUFFER_BIT); //очистка буфера цвета и буфера глубины
+
+	glLineWidth(3); // ширина линий кооринатных осей
     glColor3f(255, 0, 0); // цвет координатных осей (черный)
+
     glBegin(GL_LINES); // ось ОХ, ось OY
-//    glVertex2f(-10, 0);
-    glVertex2f(10, 0);
-    glVertex2f(0, 10);
-//    glVertex2f(0, -10);
-    glEnd();
+	glVertex2f(50, 50);
+    glVertex2f(50, 450);
+	glVertex2f(50, 50);
+	glVertex2f(450, 50);
+	glEnd();
+
+	glLineWidth(3);
+	glColor3ub(0,255,0);
+	glBegin(GL_POINTS);
+	glVertex2d(150, 150);
+	glVertex2d(150, 150);
+
+//	GLfloat BlueCol[3] = {0,0,1};
+//
+//	glBegin(GL_TRIANGLES);
+//	glColor3f(1.0, 0.0, 0.0);   /* красный */
+//	glVertex3f(0.0, 0.0, 0.0);
+//	glColor3ub(0,255,0);    /* зеленый */
+//	glVertex3f(1.0, 0.0, 0.0);
+//	glColor3fv(BlueCol);    /* синий */
+//	glVertex3f(1.0, 1.0, 0.0);
+
+	glEnd();
+
+	glFinish();
 }
 
-//Функция вызывается при изменении размеров окна
+/* Функция вызывается при изменении размеров окна */
 void Reshape(GLint w, GLint h)
 {
-    Width = w;
-    Height = h;
+	Width = w;
+	Height = h;
 
-    // устанавливаем размеры области отображения
-    glViewport(0, 0, w, h);
+	/* устанавливаем размеры области отображения */
+	glViewport(0, 0, w, h);
 
-    // отрографическая проекция
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    glOrtho(-20, 10, -20, 20, -10, 10);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
+	/* ортографическая проекция */
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(0, w, 0, h, -1.0, 1.0);
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 }
 
-// Функция обработки сообщений с клавиатуры
+/* Функция обрабатывает сообщения от клавиатуры */
 void Keyboard(unsigned char key, int x, int y)
 {
 #define ESCAPE '\033'
-    if (key == ESCAPE)
-        exit(0);
+
+	if( key == ESCAPE )
+		exit(0);
 }
+
 
 int main(int argc, char **argv) {
 //    int m;
@@ -186,9 +239,11 @@ int main(int argc, char **argv) {
     glutInitDisplayMode(GLUT_RGB);
     glutInitWindowSize(Width, Height);
     glutCreateWindow("Graphic:");
+
     glutDisplayFunc(Display);
     glutReshapeFunc(Reshape);
     glutKeyboardFunc(Keyboard);
+
     glutMainLoop();
 
 	return 0;

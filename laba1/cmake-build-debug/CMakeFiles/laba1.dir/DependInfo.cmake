@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/daria/Desktop/clionprojects/mak_laba/laba1/main.c" "/home/daria/Desktop/clionprojects/mak_laba/laba1/cmake-build-debug/CMakeFiles/laba1.dir/main.c.o"
+  "/Users/cdoreah/Desktop/dashka_repository/mak_laba/laba1/main.c" "/Users/cdoreah/Desktop/dashka_repository/mak_laba/laba1/cmake-build-debug/CMakeFiles/laba1.dir/main.c.o"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_C_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH

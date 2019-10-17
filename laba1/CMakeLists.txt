@@ -8,9 +8,10 @@ add_executable(laba1
 
 
 #for windows
-##include <GL/glew.h>
-##include <GL/glut.h>
+#include <GL/glew.h>
+#include <GL/glut.h>
 
+#for all:
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
 include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
@@ -19,5 +20,5 @@ target_link_libraries(laba1 ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})
 
 #for mac:
 #-lm -framework OpenGL -framework Glut
-##include <OpenGL/glext.h>
-##include <GLUT/glut.h>
+#include <OpenGL/glext.h>
+#include <GLUT/glut.h>
