@@ -1,3 +1,3 @@
-/Users/cdoreah/Desktop/dashka_repository/laba_makarov/laba1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/cdoreah/Desktop/dashka_repository/laba_makarov/laba1/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/cdoreah/Desktop/dashka_repository/laba_makarov/laba1/cmake-build-debug/CMakeFiles/laba1.dir
+/home/daria/Desktop/clionprojects/mak_laba/laba1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/daria/Desktop/clionprojects/mak_laba/laba1/cmake-build-debug/CMakeFiles/laba1.dir
+/home/daria/Desktop/clionprojects/mak_laba/laba1/cmake-build-debug/CMakeFiles/edit_cache.dir

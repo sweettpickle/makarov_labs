@@ -1,4 +1,4 @@
-/Users/cdoreah/Desktop/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/cdoreah/Desktop/dashka_repository/laba_makarov/laba1
+/snap/clion/88/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/daria/Desktop/clionprojects/mak_laba/laba1
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/cdoreah/Desktop/dashka_repository/laba_makarov/laba1/cmake-build-debug
+-- Build files have been written to: /home/daria/Desktop/clionprojects/mak_laba/laba1/cmake-build-debug

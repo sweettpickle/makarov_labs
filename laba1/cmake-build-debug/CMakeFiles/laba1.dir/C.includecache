@@ -6,3 +6,11 @@
 
 #IncludeRegexTransform: 
 
+/home/daria/Desktop/clionprojects/mak_laba/laba1/main.c
+stdio.h
+-
+GL/glew.h
+-
+GL/glut.h
+-
+

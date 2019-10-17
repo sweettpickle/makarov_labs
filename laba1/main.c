@@ -1,9 +1,10 @@
 #include <stdio.h>
-#include <OpenGL/gl.h>
+#include <GL/glew.h>
+#include <GL/glut.h>
 
 int solve(int mas_b[100][2], int mas_w[100][2], int m, int n);
 
-//void create_win(int mas_b[100][2], int mas_w[100][2], int m, int n)
+//void display(int mas_b[100][2], int mas_w[100][2], int m, int n)
 //{
 //
 //}
@@ -128,7 +129,48 @@ int solve(int mas_b[100][2], int mas_w[100][2], int m, int n)
 	return (0);
 }
 
-int main() {
+GLint Width = 450, Height = 450;
+
+void Display()
+{
+    glClearColor(0, 255, 0, 1); // цвет окна
+    glClear(GL_COLOR_BUFFER_BIT); //очистка буфера цвета и буфера глубины
+    glLineWidth(1); // ширина линий кооринатных осей
+    glColor3f(255, 0, 0); // цвет координатных осей (черный)
+    glBegin(GL_LINES); // ось ОХ, ось OY
+//    glVertex2f(-10, 0);
+    glVertex2f(10, 0);
+    glVertex2f(0, 10);
+//    glVertex2f(0, -10);
+    glEnd();
+}
+
+//Функция вызывается при изменении размеров окна
+void Reshape(GLint w, GLint h)
+{
+    Width = w;
+    Height = h;
+
+    // устанавливаем размеры области отображения
+    glViewport(0, 0, w, h);
+
+    // отрографическая проекция
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(-20, 10, -20, 20, -10, 10);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+}
+
+// Функция обработки сообщений с клавиатуры
+void Keyboard(unsigned char key, int x, int y)
+{
+#define ESCAPE '\033'
+    if (key == ESCAPE)
+        exit(0);
+}
+
+int main(int argc, char **argv) {
 //    int m;
 //    int n;
 //
@@ -139,39 +181,15 @@ int main() {
 //    if (m < 2 || n < 2)
 //        return 0;
 //    input(m, n);
-	glBegin(GL_LINES);
-	glVertex3d(-1, -1, 0); //х
-	glVertex3d(1, -1, 0);
 
-	glVertex3d(-1, 1, 0); //у
-	glVertex3d(-1, -1, 0);
-
-	glVertex3d(-1, -1, 0);//z
-	glVertex3d(-1, -1, 2);
-
-//	glColor3f(0, 1f, 0);
-
-	//double x,y,z;
-	//int imass = 10, jmass= 10;
-	//
-	//for (int i = 0; i <= imass; i++)
-	//{
-	//	for (int j = 0; j <= jmass; j++)
-	//	{
-	//		if (j != jmass)
-	//		{
-	//			glVertex3d(x[i], y[j], z[i, j]);
-	//			glVertex3d(x[i], y[j + 1], z[i, j + 1]);
-	//		}
-	//		if (i != imass)
-	//		{
-	//			glVertex3d(x[i], y[j], z[i, j]);
-	//			glVertex3d(x[i + 1], y[j], z[i + 1, j]);
-	//		}
-	//	}
-	//}
-
-	glEnd();
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_RGB);
+    glutInitWindowSize(Width, Height);
+    glutCreateWindow("Graphic:");
+    glutDisplayFunc(Display);
+    glutReshapeFunc(Reshape);
+    glutKeyboardFunc(Keyboard);
+    glutMainLoop();
 
 	return 0;
 }
