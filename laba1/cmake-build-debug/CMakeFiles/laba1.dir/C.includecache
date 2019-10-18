@@ -6,15 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/Users/cdoreah/Desktop/dashka_repository/mak_laba/laba1/main.c
+/home/daria/Desktop/clionprojects/mak_labs/laba1/library.h
 stdio.h
 -
-OpenGL/glext.h
+GL/glew.h
 -
-GLUT/glut.h
--
-OpenGL/gl.h
+GL/glut.h
 -
 stdlib.h
 -
+
+/home/daria/Desktop/clionprojects/mak_labs/laba1/main.c
+library.h
+/home/daria/Desktop/clionprojects/mak_labs/laba1/library.h
 

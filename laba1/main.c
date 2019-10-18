@@ -1,22 +1,4 @@
-#include <stdio.h>
-//for win or linux
-//#include <GL/glew.h>
-//#include <GL/glut.h>
-
-//for mac
-#include <OpenGL/glext.h>
-#include <GLUT/glut.h>
-#include <OpenGL/gl.h>
-#include <stdlib.h>
-
-#define start 10
-int m;
-int n;
-int mas_black[100][2];
-int mas_white[100][2];
-
-int solve(int mas_b[100][2], int mas_w[100][2]);
-void create_point(int mas_b[100][2], int flag, int count);
+#include "library.h"
 
 int search_d(const int *par1, const int *par2, const int *par3)
 {
@@ -28,77 +10,96 @@ int search_d(const int *par1, const int *par2, const int *par3)
 	return (a - b);
 }
 
-int on_one_side(const int *mas)
+int on_one_side(const int *mas, int z)
 {
 	int i;
 	int c;
 
+    i = 0;
+    c = 0;
+    while (i < z)
+    {
+        if (mas[i] == 0)
+            c++;
+        i++;
+    }
+    if (c == z)
+        return (3);
 	i = 0;
 	c = 0;
-	while (i < m)
+	while (i < z)
 	{
 		if (mas[i] <= 0)
 			c++;
 		i++;
 	}
-	if (c == m)
+	if (c == z)
 		return (-1);
 	i = 0;
 	c = 0;
-	while (i < m)
+	while (i < z)
 	{
 		if (mas[i] >= 0)
 			c++;
 		i++;
 	}
-	if (c == m)
+	if (c == z)
 		return (1);
 	return (0);
 }
 
-int one_color(const int *par1, const int *par2, int mas_col[100][2], int side1)
+int one_color(const int *par1, const int *par2, int mas_col[100][2], int side1, int z)
 {
 	int i;
-	int mas[n];
-	int side2;
+	int mas[z];
 
 	i = 0;
-	while (i < n)
+	while (i < z)
 	{
 		mas[i] = search_d(par1, par2, mas_col[i]);
 		i++;
 	}
-	side2 = on_one_side(mas);
-	if (side2 != 0 && side2 != side1)
+	side = on_one_side(mas, z);
+	if (side != 0 && side != side1)
 		return (1);
 	return (0);
 }
 
-int solve(int mas_b[100][2], int mas_w[100][2])
+int solve(int mas_b[50][2], int mas_w[50][2])
 {
-	int mas[m];
+	int mas[50];
 	int i;
 	int j;
 	int z;
-	int side;
 
 	i = 0;
-	while (i < m - 1)
+	while (i < len_b - 1)
 	{
 		j = i + 1;
-		while (j < m)
+		while (j < len_b)
 		{
 			z = 0;
-			while (z < m)
+			while (z < len_b)
 			{
 				mas[z] = search_d(mas_b[i], mas_b[j], mas_b[z]);
 				z++;
 			}
-			side = on_one_side(mas);
+			side = on_one_side(mas, len_b);
+			if (side == 3)
+            {
+                one_color(mas_b[i], mas_b[j], mas_w, side, len_w);
+                x1 = mas_b[i][0], y1 = mas_b[i][1];
+                x2 = mas_b[j][0], y2 = mas_b[j][1];
+                return (1);
+            }
 			if (side == 1 || side == -1)
 			{
-				if (one_color(mas_b[i], mas_b[j], mas_w, side))
-					return (1);
+				if (one_color(mas_b[i], mas_b[j], mas_w, side, len_w))
+                {
+                    x1 = mas_b[i][0], y1 = mas_b[i][1];
+                    x2 = mas_b[j][0], y2 = mas_b[j][1];
+                    return (1);
+                }
 			}
 			j++;
 		}
@@ -106,22 +107,33 @@ int solve(int mas_b[100][2], int mas_w[100][2])
 	}
 
 	i = 0;
-	while (i < n - 1)
+	while (i < len_w - 1)
 	{
 		j = i + 1;
-		while (j < n)
+		while (j < len_w)
 		{
 			z = 0;
-			while (z < n)
+			while (z < len_w)
 			{
 				mas[z] = search_d(mas_w[i], mas_w[j], mas_w[z]);
 				z++;
 			}
-			side = on_one_side(mas);
+			side = on_one_side(mas, len_w);
+            if (side == 3)
+            {
+                one_color(mas_w[i], mas_w[j], mas_b, side, len_b);
+                x1 = mas_w[i][0], y1 = mas_w[i][1];
+                x2 = mas_w[j][0], y2 = mas_w[j][1];
+                return (1);
+            }
 			if (side == 1 || side == -1)
 			{
-				if (one_color(mas_w[i], mas_w[j], mas_b, side))
-					return (1);
+				if (one_color(mas_w[i], mas_w[j], mas_b, side, len_b))
+                {
+                    x1 = mas_w[i][0], y1 = mas_w[i][1];
+                    x2 = mas_w[j][0], y2 = mas_w[j][1];
+                    return (1);
+                }
 			}
 			j++;
 		}
@@ -130,7 +142,25 @@ int solve(int mas_b[100][2], int mas_w[100][2])
 	return (0);
 }
 
-void create_point(int mas[100][2], int flag, int count)
+void create_line()
+{
+    glLineWidth(1);
+    glBegin(GL_LINES);
+    glColor3d(1,0,0);
+    if (side < 0)
+    {
+        printf("%d %d %d %d",x1, x2, y1, y2);
+        glVertex3d(start + (x1) * 5, start + (y1 + 5) * 5, 0);
+        glVertex3d(start + (x2) * 5, start + (y2 + 5) * 5, 0);
+    }
+    else {
+        glVertex3d(start + (x1 - 5) * 5, start + (y1 - 5) * 5, 0);
+        glVertex3d(start + (x2 + 5) * 5, start + (y2 - 5) * 5, 0);
+    }
+    glEnd();
+}
+
+void create_point(int mas[50][2], int flag, int count)
 {
 	int i;
 
@@ -151,7 +181,6 @@ void create_point(int mas[100][2], int flag, int count)
 			glVertex3d(mas[i][0] * 5 + start, mas[i][1] * 5 + start, 0);
 		i++;
 	}
-
 	glEnd();
 }
 
@@ -171,8 +200,9 @@ void Display(void)
 		glVertex2f(500, start);
 	glEnd();
 
-	create_point(mas_black, 1, m);
-	create_point(mas_white, 0, n);
+	create_point(mas_black, 1, len_b);
+	create_point(mas_white, 0, len_w);
+	create_line();
 
 	glFinish();
 }
@@ -193,7 +223,7 @@ void Reshape(GLint w, GLint h)
 }
 
 /* Функция обрабатывает сообщения от клавиатуры */
-void Keyboard(unsigned char key, int x, int y)
+void Keyboard(unsigned char key)
 {
 #define ESCAPE '\033'
 
@@ -205,43 +235,42 @@ int main(int argc, char **argv) {
 	int i;
 
     printf("Number of black point: \n");
-    scanf("%d", &m);
+    scanf("%d", &len_b);
     printf("Number of white point: \n");
-    scanf("%d", &n);
-//    if (m < 2 || n < 2)
-//        return 0;
+    scanf("%d", &len_w);
+    if (len_b < 2 || len_w < 2)
+        return 0;
 	i = 0;
-	if (m > 100 || n > 100)
+	if (len_b > 50 || len_w > 50)
 		return (0);
-	while (i < m)
+	while (i < len_b)
 	{
 		printf("Input %d black point: ", i + 1);
 		scanf("%d%d", &mas_black[i][0], &mas_black[i][1]);
 		i++;
 	}
 	i = 0;
-	while (i < n)
+	while (i < len_w)
 	{
 		printf("Input %d white point: ", i + 1);
 		scanf("%d%d", &mas_white[i][0], &mas_white[i][1]);
 		i++;
 	}
 
-	if (solve(mas_black, mas_white))
-	{
-		printf("line is here!");
-	}
-	printf("not found line:(");
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_RGB);
-	glutInitWindowPosition(1000,300);
-	glutInitWindowSize(550, 550);
-	glutCreateWindow("Graphic:");
+    if (solve(mas_black, mas_white)) {
+        printf("line is here!");
 
-	glutDisplayFunc(Display);
-	glutReshapeFunc(Reshape);
-	glutKeyboardFunc(Keyboard);
-
-	glutMainLoop(); //Контроль всех событий и вызов нужных функций происходит внутри бесконечного цикла в этой функции
+        glutInit(&argc, argv);
+        glutInitDisplayMode(GLUT_RGB);
+        glutInitWindowPosition(1000, 300);
+        glutInitWindowSize(550, 550);
+        glutCreateWindow("Graphic:");
+        glutDisplayFunc(Display);
+        glutReshapeFunc(Reshape);
+        glutKeyboardFunc((void (*)(unsigned char, int, int)) Keyboard);
+        glutMainLoop(); //Контроль всех событий и вызов нужных функций происходит внутри бесконечного цикла в этой функции
+    }
+    else
+        printf("not found line:(");
 	return 0;
 }
