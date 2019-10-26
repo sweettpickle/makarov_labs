@@ -78,6 +78,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/daria/Desktop/clionprojects/mak_labs/laba1/create_window.c">
+			<Option target="laba1"/>
+		</Unit>
+		<Unit filename="/home/daria/Desktop/clionprojects/mak_labs/laba1/is_line.c">
+			<Option target="laba1"/>
+		</Unit>
 		<Unit filename="/home/daria/Desktop/clionprojects/mak_labs/laba1/library.h">
 			<Option target="laba1"/>
 		</Unit>

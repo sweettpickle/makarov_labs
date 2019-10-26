@@ -123,6 +123,60 @@ laba1/fast:
 	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/build
 .PHONY : laba1/fast
 
+create_window.o: create_window.c.o
+
+.PHONY : create_window.o
+
+# target to build an object file
+create_window.c.o:
+	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/create_window.c.o
+.PHONY : create_window.c.o
+
+create_window.i: create_window.c.i
+
+.PHONY : create_window.i
+
+# target to preprocess a source file
+create_window.c.i:
+	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/create_window.c.i
+.PHONY : create_window.c.i
+
+create_window.s: create_window.c.s
+
+.PHONY : create_window.s
+
+# target to generate assembly for a file
+create_window.c.s:
+	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/create_window.c.s
+.PHONY : create_window.c.s
+
+is_line.o: is_line.c.o
+
+.PHONY : is_line.o
+
+# target to build an object file
+is_line.c.o:
+	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/is_line.c.o
+.PHONY : is_line.c.o
+
+is_line.i: is_line.c.i
+
+.PHONY : is_line.i
+
+# target to preprocess a source file
+is_line.c.i:
+	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/is_line.c.i
+.PHONY : is_line.c.i
+
+is_line.s: is_line.c.s
+
+.PHONY : is_line.s
+
+# target to generate assembly for a file
+is_line.c.s:
+	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/is_line.c.s
+.PHONY : is_line.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -159,6 +213,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... laba1"
 	@echo "... edit_cache"
+	@echo "... create_window.o"
+	@echo "... create_window.i"
+	@echo "... create_window.s"
+	@echo "... is_line.o"
+	@echo "... is_line.i"
+	@echo "... is_line.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
