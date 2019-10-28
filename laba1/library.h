@@ -1,7 +1,7 @@
 #ifndef LABA1_LIBRARY_H
 #define LABA1_LIBRARY_H
-
 #include <stdio.h>
+
 //for win or linux
 #include <GL/glew.h>
 #include <GL/glut.h>
@@ -14,20 +14,19 @@
 
 #define start 10
 
-//int x1 = 0;
-//int x2 = 0;
-//int y1 = 0;
-//int y2 = 0;
+int x1;
+int x2;
+int y1;
+int y2;
 
-int side = 0;
-int len_b = 0;
-int len_w = 0;
-//int mas_black[50][2];
-//int mas_white[50][2];
+int len_b;
+int len_w;
+int mas_black[50][2];
+int mas_white[50][2];
 
 
 void create_line();
-void create_point(int mas[50][2], int flag, int count);
+void create_point(int mas[50][2], int is_black, int count);
 void Display(void);
 void Reshape(GLint w, GLint h);
 void Keyboard(unsigned char key);

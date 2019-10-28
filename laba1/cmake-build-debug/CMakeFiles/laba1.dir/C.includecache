@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/daria/Desktop/clionprojects/mak_labs/laba1/create_window.c
+library.h
+/home/daria/Desktop/clionprojects/mak_labs/laba1/library.h
+
 /home/daria/Desktop/clionprojects/mak_labs/laba1/library.h
 stdio.h
 -
@@ -15,8 +19,4 @@ GL/glut.h
 -
 stdlib.h
 -
-
-/home/daria/Desktop/clionprojects/mak_labs/laba1/main.c
-library.h
-/home/daria/Desktop/clionprojects/mak_labs/laba1/library.h
 

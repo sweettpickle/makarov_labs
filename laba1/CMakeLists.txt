@@ -4,7 +4,7 @@ project(laba1 C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(laba1
-        main.c library.h line_here.c create_window.c)
+        line_here.c create_window.c library.h )
 
 
 #for windows or linux

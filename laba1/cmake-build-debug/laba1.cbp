@@ -81,13 +81,10 @@
 		<Unit filename="/home/daria/Desktop/clionprojects/mak_labs/laba1/create_window.c">
 			<Option target="laba1"/>
 		</Unit>
-		<Unit filename="/home/daria/Desktop/clionprojects/mak_labs/laba1/is_line.c">
-			<Option target="laba1"/>
-		</Unit>
 		<Unit filename="/home/daria/Desktop/clionprojects/mak_labs/laba1/library.h">
 			<Option target="laba1"/>
 		</Unit>
-		<Unit filename="/home/daria/Desktop/clionprojects/mak_labs/laba1/main.c">
+		<Unit filename="/home/daria/Desktop/clionprojects/mak_labs/laba1/line_here.c">
 			<Option target="laba1"/>
 		</Unit>
 		<Unit filename="/home/daria/Desktop/clionprojects/mak_labs/laba1/CMakeLists.txt">

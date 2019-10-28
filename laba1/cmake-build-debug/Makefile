@@ -150,59 +150,32 @@ create_window.c.s:
 	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/create_window.c.s
 .PHONY : create_window.c.s
 
-is_line.o: is_line.c.o
+line_here.o: line_here.c.o
 
-.PHONY : is_line.o
-
-# target to build an object file
-is_line.c.o:
-	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/is_line.c.o
-.PHONY : is_line.c.o
-
-is_line.i: is_line.c.i
-
-.PHONY : is_line.i
-
-# target to preprocess a source file
-is_line.c.i:
-	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/is_line.c.i
-.PHONY : is_line.c.i
-
-is_line.s: is_line.c.s
-
-.PHONY : is_line.s
-
-# target to generate assembly for a file
-is_line.c.s:
-	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/is_line.c.s
-.PHONY : is_line.c.s
-
-main.o: main.c.o
-
-.PHONY : main.o
+.PHONY : line_here.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/main.c.o
-.PHONY : main.c.o
+line_here.c.o:
+	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/line_here.c.o
+.PHONY : line_here.c.o
 
-main.i: main.c.i
+line_here.i: line_here.c.i
 
-.PHONY : main.i
+.PHONY : line_here.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/main.c.i
-.PHONY : main.c.i
+line_here.c.i:
+	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/line_here.c.i
+.PHONY : line_here.c.i
 
-main.s: main.c.s
+line_here.s: line_here.c.s
 
-.PHONY : main.s
+.PHONY : line_here.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/main.c.s
-.PHONY : main.c.s
+line_here.c.s:
+	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/line_here.c.s
+.PHONY : line_here.c.s
 
 # Help Target
 help:
@@ -216,12 +189,9 @@ help:
 	@echo "... create_window.o"
 	@echo "... create_window.i"
 	@echo "... create_window.s"
-	@echo "... is_line.o"
-	@echo "... is_line.i"
-	@echo "... is_line.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... line_here.o"
+	@echo "... line_here.i"
+	@echo "... line_here.s"
 .PHONY : help
 
 

@@ -5,8 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/home/daria/Desktop/clionprojects/mak_labs/laba1/create_window.c" "/home/daria/Desktop/clionprojects/mak_labs/laba1/cmake-build-debug/CMakeFiles/laba1.dir/create_window.c.o"
-  "/home/daria/Desktop/clionprojects/mak_labs/laba1/is_line.c" "/home/daria/Desktop/clionprojects/mak_labs/laba1/cmake-build-debug/CMakeFiles/laba1.dir/is_line.c.o"
-  "/home/daria/Desktop/clionprojects/mak_labs/laba1/main.c" "/home/daria/Desktop/clionprojects/mak_labs/laba1/cmake-build-debug/CMakeFiles/laba1.dir/main.c.o"
+  "/home/daria/Desktop/clionprojects/mak_labs/laba1/line_here.c" "/home/daria/Desktop/clionprojects/mak_labs/laba1/cmake-build-debug/CMakeFiles/laba1.dir/line_here.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

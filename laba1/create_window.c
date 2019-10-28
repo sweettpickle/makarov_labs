@@ -4,17 +4,9 @@ void create_line()
 {
     glLineWidth(1);
     glBegin(GL_LINES);
-    glColor3d(1,0,0);
-    if (side < 0)
-    {
-        printf("%d %d %d %d",x1, x2, y1, y2);
-        glVertex3d(start + (x1) * 5, start + (y1 + 5) * 5, 0);
-        glVertex3d(start + (x2) * 5, start + (y2 + 5) * 5, 0);
-    }
-    else {
-        glVertex3d(start + (x1 - 5) * 5, start + (y1 - 5) * 5, 0);
-        glVertex3d(start + (x2 + 5) * 5, start + (y2 - 5) * 5, 0);
-    }
+        glColor3d(1,0,0);
+        glVertex3d(start + x1 * 5, start + y1 * 5, 0);
+        glVertex3d(start + x2 * 5, start + y2 * 5, 0);
     glEnd();
 }
 
@@ -57,7 +49,7 @@ void Display(void)
     glVertex2f(start, start);
     glVertex2f(500, start);
     glEnd();
-
+    
     create_point(mas_black, 1, len_b);
     create_point(mas_white, 0, len_w);
     create_line();

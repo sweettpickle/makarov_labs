@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/laba1.dir/create_window.c.o"
-  "CMakeFiles/laba1.dir/is_line.c.o"
-  "CMakeFiles/laba1.dir/main.c.o"
+  "CMakeFiles/laba1.dir/line_here.c.o"
   "laba1"
   "laba1.pdb"
 )
