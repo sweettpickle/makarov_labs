@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/daria/Desktop/clionprojects/mak_labs/lab2/library.h
+stdio.h
+-
+GL/glew.h
+-
+GL/glut.h
+-
+
+/home/daria/Desktop/clionprojects/mak_labs/lab2/main.c
+library.h
+/home/daria/Desktop/clionprojects/mak_labs/lab2/library.h
+

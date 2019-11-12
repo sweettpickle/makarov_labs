@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/lab2.dir/main.c.o CMakeFiles/lab2.dir/create_window.c.o  -o lab2 /usr/lib/x86_64-linux-gnu/libOpenGL.so /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libGLU.so /usr/lib/x86_64-linux-gnu/libglut.so 

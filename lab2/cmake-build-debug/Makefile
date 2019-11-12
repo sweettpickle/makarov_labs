@@ -48,10 +48,10 @@ RM = /snap/clion/92/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daria/Desktop/clionprojects/mak_labs/laba1
+CMAKE_SOURCE_DIR = /home/daria/Desktop/clionprojects/mak_labs/lab2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daria/Desktop/clionprojects/mak_labs/laba1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/daria/Desktop/clionprojects/mak_labs/lab2/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daria/Desktop/clionprojects/mak_labs/laba1/cmake-build-debug/CMakeFiles /home/daria/Desktop/clionprojects/mak_labs/laba1/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/daria/Desktop/clionprojects/mak_labs/lab2/cmake-build-debug/CMakeFiles /home/daria/Desktop/clionprojects/mak_labs/lab2/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/daria/Desktop/clionprojects/mak_labs/laba1/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/daria/Desktop/clionprojects/mak_labs/lab2/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named laba1
+# Target rules for targets named lab2
 
 # Build rule for target.
-laba1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 laba1
-.PHONY : laba1
+lab2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lab2
+.PHONY : lab2
 
 # fast build rule for target.
-laba1/fast:
-	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/build
-.PHONY : laba1/fast
+lab2/fast:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/build
+.PHONY : lab2/fast
 
 create_window.o: create_window.c.o
 
@@ -129,7 +129,7 @@ create_window.o: create_window.c.o
 
 # target to build an object file
 create_window.c.o:
-	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/create_window.c.o
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/create_window.c.o
 .PHONY : create_window.c.o
 
 create_window.i: create_window.c.i
@@ -138,7 +138,7 @@ create_window.i: create_window.c.i
 
 # target to preprocess a source file
 create_window.c.i:
-	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/create_window.c.i
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/create_window.c.i
 .PHONY : create_window.c.i
 
 create_window.s: create_window.c.s
@@ -147,35 +147,35 @@ create_window.s: create_window.c.s
 
 # target to generate assembly for a file
 create_window.c.s:
-	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/create_window.c.s
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/create_window.c.s
 .PHONY : create_window.c.s
 
-line_here.o: line_here.c.o
+main.o: main.c.o
 
-.PHONY : line_here.o
+.PHONY : main.o
 
 # target to build an object file
-line_here.c.o:
-	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/line_here.c.o
-.PHONY : line_here.c.o
+main.c.o:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/main.c.o
+.PHONY : main.c.o
 
-line_here.i: line_here.c.i
+main.i: main.c.i
 
-.PHONY : line_here.i
+.PHONY : main.i
 
 # target to preprocess a source file
-line_here.c.i:
-	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/line_here.c.i
-.PHONY : line_here.c.i
+main.c.i:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/main.c.i
+.PHONY : main.c.i
 
-line_here.s: line_here.c.s
+main.s: main.c.s
 
-.PHONY : line_here.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-line_here.c.s:
-	$(MAKE) -f CMakeFiles/laba1.dir/build.make CMakeFiles/laba1.dir/line_here.c.s
-.PHONY : line_here.c.s
+main.c.s:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/main.c.s
+.PHONY : main.c.s
 
 # Help Target
 help:
@@ -184,14 +184,14 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... laba1"
+	@echo "... lab2"
 	@echo "... edit_cache"
 	@echo "... create_window.o"
 	@echo "... create_window.i"
 	@echo "... create_window.s"
-	@echo "... line_here.o"
-	@echo "... line_here.i"
-	@echo "... line_here.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 
