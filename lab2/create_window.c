@@ -11,11 +11,11 @@ void create_points()
     while (i < size)
     {
         if (!mas_points[i][0] && mas_points[i][1])
-            glVertex3d(mas_points[i][0] + start, mas_points[i][1], 0);
+            glVertex3d(mas_points[i][0] * 10, mas_points[i][1] * 10, 0);
         else if (!mas_points[i][1] && mas_points[i][0])
-            glVertex3d(mas_points[i][0], mas_points[i][1] + start, 0);
+            glVertex3d(mas_points[i][0] * 10, mas_points[i][1] * 10, 0);
         else
-            glVertex3d(mas_points[i][0] + start, mas_points[i][1] + start, 0);
+            glVertex3d(mas_points[i][0] * 10, mas_points[i][1] * 10, 0);
         i++;
     }
     glEnd();
@@ -31,10 +31,10 @@ void Display(void)
 
     glBegin(GL_LINES); // ось ОХ, ось OY
     glColor3f(255, 0, 0); // цвет координатных осей (черный)
-    glVertex2f(start, start);
-    glVertex2f(start, 400);
-    glVertex2f(start, start);
-    glVertex2f(400, start);
+    glVertex2f(0, 0);
+    glVertex2f(0, 600);
+    glVertex2f(0, 0;
+    glVertex2f(600, 0);
     glEnd();
     
     create_points();
