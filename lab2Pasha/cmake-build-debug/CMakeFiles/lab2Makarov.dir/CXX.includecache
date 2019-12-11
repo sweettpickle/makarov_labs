@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/sweet/CLionProjects/lab2Makarov/MainWindow.cpp
+mll.h
+C:/Users/sweet/CLionProjects/lab2Makarov/mll.h
+iostream
+-
+vector
+-
+conio.h
+-
+ctime
+-
+chrono
+-
+
+C:/Users/sweet/CLionProjects/lab2Makarov/mll.h
+map
+-
+Windows.h
+-
+string
+-
+cmath
+-
+
